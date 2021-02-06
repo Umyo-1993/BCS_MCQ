@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.provider.ContactsContract;
 import android.view.View;
 import android.widget.Button;
@@ -16,11 +17,12 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class QuizActivity extends AppCompatActivity {
-    TextView question;
+    TextView question,counttime;
     Button option1,option2,option3,option4;
     int total=0;
     int result=0;
     int correct=0;
+    int counter;
 
 
     @Override
@@ -32,8 +34,11 @@ public class QuizActivity extends AppCompatActivity {
         option2=findViewById(R.id.option2);
         option3=findViewById(R.id.option3);
         option4=findViewById(R.id.option4);
+        counttime=findViewById(R.id.count_time);
+         timer(60,counttime);
         UpdateQuestion();
-        Resultshow();
+    //    Resultshow();
+
 
    /*     DatabaseReference mRef= FirebaseDatabase.getInstance().getReference().child("Questions").child(String.valueOf(total));
         mRef.addValueEventListener(new ValueEventListener() {
@@ -75,6 +80,7 @@ public class QuizActivity extends AppCompatActivity {
         if(total>3)
         {
             Intent intent=new Intent(QuizActivity.this,ResultActivity.class);
+            intent.putExtra("Result",String.valueOf(result));
             startActivity(intent);
 
         }
@@ -168,5 +174,23 @@ public class QuizActivity extends AppCompatActivity {
 
         }
 
+    }
+    public  void timer(int second,final TextView tv)
+    {
+        new CountDownTimer(second*1000+1000,1000) {
+            @Override
+            public void onTick(long millisUntilFinished) {
+                int sec= (int) (millisUntilFinished/1000);
+                int min=sec/60;
+                sec=sec%60;
+                counttime.setText(String.format("%02d",min)+ ":" +String.format("%02d",sec));
+
+            }
+            @Override
+            public void onFinish() {
+                counttime.setText("Finished");
+
+            }
+        }.start();
     }
 }
