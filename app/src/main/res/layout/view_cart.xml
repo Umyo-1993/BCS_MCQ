@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="220dp">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/questionname"
+        android:textColor="@color/black"
+        android:textSize="23sp"
+        />
+
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/questionname"
+       >
+
+        <RadioButton
+            android:layout_width="142dp"
+            android:layout_height="wrap_content"
+            android:text="JAVA"
+            android:id="@+id/radioButton"
+            android:textSize="20sp"
+            android:checked="false"
+            />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ANDROID"
+            android:id="@+id/radioButton2"
+
+            android:checked="false"
+            android:textSize="20sp" />
+
+        <RadioButton
+            android:layout_width="136dp"
+            android:layout_height="wrap_content"
+            android:text="HTML"
+            android:id="@+id/radioButton3"
+
+            android:checked="false"
+            android:textSize="20sp"/>
+        <RadioButton
+            android:layout_width="136dp"
+            android:layout_height="wrap_content"
+            android:text="HTML"
+            android:id="@+id/radioButton4"
+
+            android:checked="false"
+            android:textSize="20sp"
+     />
+
+    </RadioGroup>
+
+
+</RelativeLayout>

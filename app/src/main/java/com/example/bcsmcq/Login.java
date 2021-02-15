@@ -96,7 +96,7 @@ public class Login extends AppCompatActivity {
                                     .show();
 
                             // hide the progress bar
-                            Intent intent=new Intent(Login.this,QuizActivity.class);
+                            Intent intent=new Intent(Login.this,HomeActivity.class);
                             startActivity(intent);
 
 
