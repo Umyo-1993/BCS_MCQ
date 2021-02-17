@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ResultActivity">
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -13,4 +14,14 @@
         android:textSize="40sp"
         android:hint="Final Score"
         android:background="@color/bluelight"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:id="@+id/time_view"
+        android:layout_below="@+id/result_view"
+        android:textSize="40sp"
+
+        android:background="@color/bluelight"/>
+
 </RelativeLayout>

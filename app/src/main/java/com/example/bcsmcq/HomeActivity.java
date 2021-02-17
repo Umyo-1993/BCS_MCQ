@@ -4,7 +4,6 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -31,7 +30,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
+import java.util.Locale;
 
 
 public class HomeActivity extends AppCompatActivity {
@@ -85,6 +86,9 @@ public class HomeActivity extends AppCompatActivity {
         GetSet getSet=new GetSet();
 
        // DatabaseReference  userdata=FirebaseDatabase.getInstance().getReference().child(uid).child("Users");
+        Calendar calendar = Calendar.getInstance(Locale.getDefault());
+        int starthour = calendar.get(Calendar.HOUR_OF_DAY);
+        int startminute = calendar.get(Calendar.MINUTE);
 
         UsersRef = FirebaseDatabase.getInstance().getReference().child("Questions");
         scoreRef=FirebaseDatabase.getInstance().getReference().child(uid);
@@ -243,8 +247,15 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(HomeActivity.this, ""+correct, Toast.LENGTH_SHORT).show();
+                Calendar calendar = Calendar.getInstance(Locale.getDefault());
+                int finishhour = calendar.get(Calendar.HOUR_OF_DAY);
+                int finishminute = calendar.get(Calendar.MINUTE);
+                int hr=finishhour-starthour;
+                int min=finishminute-startminute;
                 Intent intent=new Intent(HomeActivity.this,ResultActivity.class);
                 intent.putExtra("Result",String.valueOf(correct));
+                intent.putExtra("Hour",String.valueOf(hr));
+                intent.putExtra("Minute",String.valueOf(min));
                 startActivity(intent);
             }
         });
