@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BCSMCQ">
-        <activity android:name=".HomeActivity"></activity>
+        <activity android:name=".StartPageActivity2"></activity>
+        <activity android:name=".StartPageActivity1" />
+        <activity android:name=".HomeActivity" />
         <activity android:name=".ResultActivity" />
         <activity android:name=".QuizActivity" />
         <activity android:name=".ShowActivity" />

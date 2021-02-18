@@ -12,16 +12,29 @@
         android:gravity="center_horizontal"
         android:id="@+id/result_view"
         android:textSize="40sp"
+        android:layout_marginTop="20dp"
         android:hint="Final Score"
-        android:background="@color/bluelight"/>
+        android:background="@drawable/border"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:id="@+id/totalques"
+        android:layout_below="@+id/result_view"
+        android:hint="Total Question"
+        android:text="10"
+        android:textSize="40sp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/border"/>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:id="@+id/time_view"
-        android:layout_below="@+id/result_view"
+        android:layout_below="@+id/totalques"
         android:textSize="40sp"
-
-        android:background="@color/bluelight"/>
+       android:layout_marginTop="20dp"
+       android:background="@drawable/border"/>
 
 </RelativeLayout>
