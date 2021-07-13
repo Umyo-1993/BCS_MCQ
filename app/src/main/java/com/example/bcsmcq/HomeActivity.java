@@ -48,6 +48,8 @@ public class HomeActivity extends AppCompatActivity {
     RadioButton RB1,RB2,RB3,RB4;
     TextView questions;
 
+
+
     private FirebaseAuth mauth = FirebaseAuth.getInstance();
     public FirebaseRecyclerAdapter<GetSet, ShowViewHolder_up> adapter;
 
