@@ -76,6 +76,7 @@ public class HomeActivity extends AppCompatActivity {
         RB4=findViewById(R.id.radioButton4);
         questions=findViewById(R.id.questionname);
         Button btn=findViewById(R.id.btnsubmit);
+        Recyclercartlist=findViewById(R.id.cartrecycler);
 
 
 
@@ -93,7 +94,7 @@ public class HomeActivity extends AppCompatActivity {
         UsersRef = FirebaseDatabase.getInstance().getReference().child("Questions");
         scoreRef=FirebaseDatabase.getInstance().getReference().child(uid);
         DatabaseReference UsersRef1 = FirebaseDatabase.getInstance().getReference().child("Questions").child("1");
-        Recyclercartlist = findViewById(R.id.cartrecycler);
+
 
         Recyclercartlist.setLayoutManager(new LinearLayoutManager(this));
         Recyclercartlist.setHasFixedSize(true);
@@ -105,9 +106,13 @@ public class HomeActivity extends AppCompatActivity {
 
         FirebaseRecyclerOptions<GetSet> options = new FirebaseRecyclerOptions.Builder<GetSet>().setQuery(UsersRef, GetSet.class).build();
 
+
         adapter = new FirebaseRecyclerAdapter<GetSet, ShowViewHolder_up>(options) {
             @Override
             protected void onBindViewHolder(ShowViewHolder_up showViewHolder, int i, GetSet gs) {
+              //  Recyclercartlist.setAdapter(adapter);
+
+
                 String questionst= String.valueOf(gs.questionname);
                 String oprion1st = String.valueOf(gs.option1);
                 String option2st=String.valueOf(gs.option2);
@@ -123,68 +128,71 @@ public class HomeActivity extends AppCompatActivity {
                 showViewHolder.r4.setText(option4st);
 
 
-                showViewHolder.rg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener()
-                {
 
-                    @Override
-                    public void onCheckedChanged(RadioGroup group, int checkedId)
-                    {
-                        switch(checkedId)
-                        {
-                            case R.id.radioButton:
-                                // TODO Something
-                                showViewHolder.rg.getChildAt(1).setEnabled(false);
-                                showViewHolder.rg.getChildAt(2).setEnabled(false);
-                                showViewHolder.rg.getChildAt(3).setEnabled(false);
-                              
-                                if(answerst.equals(oprion1st))
-                                {
-                                    correct++;
-                              //      Toast.makeText(HomeActivity.this, "work done....."+correct, Toast.LENGTH_SHORT).show();
 
-                                }
 
-                                break;
-                            case R.id.radioButton2:
-                                // TODO Something
-                                showViewHolder.rg.getChildAt(0).setEnabled(false);
-                                showViewHolder.rg.getChildAt(2).setEnabled(false);
-                                showViewHolder.rg.getChildAt(3).setEnabled(false);
-                                if(answerst.equals(option2st))
-                                {
-                                    correct++;
+                showViewHolder.rg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
 
-                                }
-                                break;
-                            case R.id.radioButton3:
-                                // TODO Something
-                                showViewHolder.rg.getChildAt(0).setEnabled(false);
-                                showViewHolder.rg.getChildAt(1).setEnabled(false);
-                                showViewHolder.rg.getChildAt(3).setEnabled(false);
-                                if(answerst.equals(option3st))
-                                {
-                                    correct++;
 
-                                }
-                                break;
-                            case R.id.radioButton4:
-                                // TODO Something
-                                showViewHolder.rg.getChildAt(0).setEnabled(false);
-                                showViewHolder.rg.getChildAt(1).setEnabled(false);
-                                showViewHolder.rg.getChildAt(2).setEnabled(false);
-                                if(answerst.equals(option4st))
-                                {
-                                    correct++;
 
-                                }
-                                break;
+                        @Override
+                        public void onCheckedChanged(RadioGroup group, int checkedId) {
 
+
+                            switch (checkedId) {
+
+
+
+                                case R.id.radioButton:
+                                    // TODO Something
+                                    showViewHolder.rg.getChildAt(1).setEnabled(false);
+                                    showViewHolder.rg.getChildAt(2).setEnabled(false);
+                                    showViewHolder.rg.getChildAt(3).setEnabled(false);
+
+                                    if (answerst.equals(oprion1st)) {
+                                        correct++;
+                                        //      Toast.makeText(HomeActivity.this, "work done....."+correct, Toast.LENGTH_SHORT).show();
+
+                                    }
+
+                                    break;
+                                case R.id.radioButton2:
+                                    // TODO Something
+                                    showViewHolder.rg.getChildAt(0).setEnabled(false);
+                                    showViewHolder.rg.getChildAt(2).setEnabled(false);
+                                    showViewHolder.rg.getChildAt(3).setEnabled(false);
+                                    if (answerst.equals(option2st)) {
+                                        correct++;
+
+                                    }
+                                    break;
+                                case R.id.radioButton3:
+                                    // TODO Something
+                                    showViewHolder.rg.getChildAt(0).setEnabled(false);
+                                    showViewHolder.rg.getChildAt(1).setEnabled(false);
+                                    showViewHolder.rg.getChildAt(3).setEnabled(false);
+                                    if (answerst.equals(option3st)) {
+                                        correct++;
+
+                                    }
+                                    break;
+                                case R.id.radioButton4:
+                                    // TODO Something
+                                    showViewHolder.rg.getChildAt(0).setEnabled(false);
+                                    showViewHolder.rg.getChildAt(1).setEnabled(false);
+                                    showViewHolder.rg.getChildAt(2).setEnabled(false);
+                                    if (answerst.equals(option4st)) {
+                                        correct++;
+
+                                    }
+                                    break;
+
+
+                            }
 
                         }
 
-                    }
-
-                });
+                    });
 
 
           //      Toast.makeText(HomeActivity.this, ""+adapter.getItem(0).getOption1(), Toast.LENGTH_SHORT).show();
@@ -232,9 +240,21 @@ public class HomeActivity extends AppCompatActivity {
 
             }
 
+
+            @Override
+            public long getItemId(int position) {
+                return position;
+            }
+
+            @Override
+            public int getItemViewType(int position) {
+                return position;
+            }
+
             @NonNull
             @Override
             public ShowViewHolder_up onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+
                 View view = LayoutInflater.from(HomeActivity.this).inflate(R.layout.view_cart, parent, false);
                 // ShowViewHolder showViewHolder = new ShowViewHolder(view);
                 ShowViewHolder_up showViewHolder=new ShowViewHolder_up(view);

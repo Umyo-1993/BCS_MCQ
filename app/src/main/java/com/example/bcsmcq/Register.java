@@ -23,8 +23,10 @@ import java.util.HashMap;
 
 public class Register extends AppCompatActivity {
     EditText emailtv,passwordtv,fullname,username,mail,phonenumber;
-    Button signup;
+    Button signup,finalsignup;
     private FirebaseAuth mAuth;
+
+
 
 
     @Override
@@ -37,15 +39,24 @@ public class Register extends AppCompatActivity {
         mail=findViewById(R.id.emailed);
         username=findViewById(R.id.usernameet);
         phonenumber=findViewById(R.id.phonenumbered);
+        finalsignup=findViewById(R.id.buttonfinal);
         mAuth=FirebaseAuth.getInstance();
-        signup=findViewById(R.id.button);
-        signup.setOnClickListener(new View.OnClickListener() {
+
+        Intent intent=getIntent();
+        String mailstr=intent.getStringExtra("mail");
+        String password=intent.getStringExtra("password");
+
+        emailtv.setText(mailstr);
+        passwordtv.setText(password);
+
+        finalsignup.setOnClickListener(new View.OnClickListener() {
             @Override
+
             public void onClick(View v) {
-                registerNewUser();
+
                 final String fullnamest=fullname.getText().toString();
                 final String usernamest=username.getText().toString();
-                final String mailst=mail.getText().toString();
+                final String mailst=emailtv.getText().toString();
                 final String phonenumberst=phonenumber.getText().toString();
 
 
@@ -91,10 +102,9 @@ public class Register extends AppCompatActivity {
 
                     }
                 });
+
             }
         });
-
-
 
     }
 

@@ -21,7 +21,7 @@ public class StartPageActivity2 extends AppCompatActivity {
         Bangla.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(StartPageActivity2.this,HomeActivity3.class);
+                Intent intent=new Intent(StartPageActivity2.this,HomeActivity.class);
                 startActivity(intent);
             }
         });
