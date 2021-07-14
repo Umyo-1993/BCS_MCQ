@@ -4,34 +4,34 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".StartPageActivity2">
+    tools:context=".Selectingsub">
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="প্রাচীন যুগ"
-        android:id="@+id/prachin_Btn"
+        android:text="বাংলা"
+        android:id="@+id/Bangla_Btn"
         />
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/moddho_Btn"
-        android:text="মধ্যযুগ"
-        android:layout_below="@id/prachin_Btn"
+        android:id="@+id/English_Btn"
+        android:text="ইংরেজি"
+        android:layout_below="@id/Bangla_Btn"
         />
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/Rabindra_btn"
-        android:text="রবীন্দ্রনাথ ঠাকুর"
-        android:layout_below="@id/moddho_Btn"
+        android:id="@+id/Math_btn"
+        android:text="গণিত"
+        android:layout_below="@id/English_Btn"
         />
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/Nazrul_btn"
-        android:text="কাজী নজরুল ইসলাম"
-        android:layout_below="@id/Rabindra_btn"
+        android:id="@+id/Gk_btn"
+        android:text="সাধারণ জ্ঞান"
+        android:layout_below="@id/Math_btn"
         />
 
 

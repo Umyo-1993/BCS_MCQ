@@ -74,7 +74,7 @@ public class StartPageActivity1 extends AppCompatActivity implements NavigationV
      btn1.setOnClickListener(new View.OnClickListener() {
          @Override
          public void onClick(View v) {
-             Intent intent=new Intent(StartPageActivity1.this,StartPageActivity2.class);
+             Intent intent=new Intent(StartPageActivity1.this,Selectingsub.class);
              startActivity(intent);
          }
      });
