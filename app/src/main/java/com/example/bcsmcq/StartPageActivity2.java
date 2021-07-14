@@ -17,11 +17,22 @@ public class StartPageActivity2 extends AppCompatActivity {
         English=findViewById(R.id.English_Btn);
         Math=findViewById(R.id.Math_btn);
         gk=findViewById(R.id.Gk_btn);
-
+        int Bengali=1;
+        int English1=2;
         Bangla.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(StartPageActivity2.this,HomeActivity.class);
+                intent.putExtra("Bengali",Bengali);
+
+                startActivity(intent);
+            }
+        });
+        English.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(StartPageActivity2.this,HomeActivity.class);
+                intent.putExtra("Bengali",English1);
                 startActivity(intent);
             }
         });

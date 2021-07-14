@@ -50,6 +50,7 @@ public class HomeActivity extends AppCompatActivity {
 
 
 
+
     private FirebaseAuth mauth = FirebaseAuth.getInstance();
     public FirebaseRecyclerAdapter<GetSet, ShowViewHolder_up> adapter;
 
@@ -95,8 +96,19 @@ public class HomeActivity extends AppCompatActivity {
 
         UsersRef = FirebaseDatabase.getInstance().getReference().child("Questions");
         scoreRef=FirebaseDatabase.getInstance().getReference().child(uid);
-        DatabaseReference UsersRef1 = FirebaseDatabase.getInstance().getReference().child("Questions").child("1");
+      //  DatabaseReference UsersRef1 = FirebaseDatabase.getInstance().getReference().child("Questions").child("1");
+       Intent intent=getIntent();
+       int identifier=intent.getIntExtra("Bengali",1);
+        if(identifier==1)
+        {
+            UsersRef= FirebaseDatabase.getInstance().getReference().child("Questions");
 
+        }
+        if(identifier==2)
+        {
+            UsersRef= FirebaseDatabase.getInstance().getReference().child("Ques2");
+
+        }
 
         Recyclercartlist.setLayoutManager(new LinearLayoutManager(this));
         Recyclercartlist.setHasFixedSize(true);
