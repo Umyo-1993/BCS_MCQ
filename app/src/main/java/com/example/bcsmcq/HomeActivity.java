@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -47,6 +48,8 @@ public class HomeActivity extends AppCompatActivity {
     RadioGroup R1;
     RadioButton RB1,RB2,RB3,RB4;
     TextView questions;
+    //1;
+    TextView timer;
 
 
 
@@ -80,6 +83,10 @@ public class HomeActivity extends AppCompatActivity {
         questions=findViewById(R.id.questionname);
         Button btn=findViewById(R.id.btnsubmit);
         Recyclercartlist=findViewById(R.id.cartrecycler);
+        //2
+        timer=findViewById(R.id.textViewtimer);
+
+
 
 
 
@@ -293,7 +300,29 @@ public class HomeActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+//3
+        CountDownTimer count=new CountDownTimer(30000 ,1000) {
+            @Override
+            public void onTick(long millisUntilFinished) {
+                timer.setText(String.valueOf(millisUntilFinished /1000)+" "+"secs left" );
+            }
 
+            @Override
+            public void onFinish() {
+                timer.setText("Test Finished");
+                Calendar calendar = Calendar.getInstance(Locale.getDefault());
+                int finishhour = calendar.get(Calendar.HOUR_OF_DAY);
+                int finishminute = calendar.get(Calendar.MINUTE);
+                int hr=finishhour-starthour;
+                int min=finishminute-startminute;
+                Intent intent=new Intent(HomeActivity.this,ResultActivity.class);
+                intent.putExtra("Result",String.valueOf(correct));
+                intent.putExtra("Hour",String.valueOf(hr));
+                intent.putExtra("Minute",String.valueOf(min));
+                startActivity(intent);
+
+            }
+        }.start();
 
 
     }
