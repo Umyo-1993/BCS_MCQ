@@ -33,7 +33,55 @@
         android:text="কাজী নজরুল ইসলাম"
         android:layout_below="@id/Rabindra_btn"
         />
-
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/set4_btn"
+        android:text="Set4"
+        android:layout_below="@id/Nazrul_btn"
+        />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/Set5"
+        android:text="St5"
+        android:layout_below="@id/set4_btn"
+        />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/Set6"
+        android:text="Set6"
+        android:layout_below="@id/Set5"
+        />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/Set7"
+        android:text="Set7"
+        android:layout_below="@id/Set6"
+        />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/Set8"
+        android:text="Set8"
+        android:layout_below="@id/Set7"
+        />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/Set9"
+        android:text="Set9"
+        android:layout_below="@id/Set8"
+        />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/Set10"
+        android:text="Set10"
+        android:layout_below="@id/Set9"
+        />
 
 
 </RelativeLayout>

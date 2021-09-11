@@ -18,10 +18,12 @@
         <activity android:name=".HomeActivity" />
         <activity android:name=".ResultActivity" />
         <activity android:name=".QuizActivity" />
-        <activity android:name=".ShowActivity" />
+
         <activity android:name=".Register" />
         <activity android:name=".Login" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"
+            android:exported="true">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
